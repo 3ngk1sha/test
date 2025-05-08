@@ -1,0 +1,1 @@
+{"version":3,"file":"socket-res.decorator.js","sourceRoot":"","sources":["../../../src/websocket/decorators/socket-res.decorator.ts"],"names":[],"mappings":";;;AAQA,2CAAwE;AAE3D,QAAA,SAAS,GAAG,IAAA,6BAAoB,EAC3C,CAAC,IAAa,EAAE,GAAqB,EAAE,EAAE;IACvC,MAAM,MAAM,GAAG,GAAG,CAAC,UAAU,EAAE,CAAC,SAAS,EAAO,CAAC;IACjD,OAAO,MAAM,CAAC,QAAQ,CAAC;AACzB,CAAC,CACF,CAAC"}

@@ -1,6 +1,4 @@
-.hexabot/
 node_modules/
-dist/
 coverage/
 uploads/
 documentation/

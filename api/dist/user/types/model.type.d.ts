@@ -1,0 +1,1 @@
+export type TModel = 'contenttype' | 'content' | 'nlpentity' | 'nlpsampleentity' | 'nlpsample' | 'nlpvalue' | 'setting' | 'attachment' | 'user' | 'role' | 'permission' | 'block' | 'category' | 'label' | 'contextvar' | 'conversation' | 'message' | 'subscriber' | 'language' | 'translation' | 'botstats' | 'menu' | 'model';

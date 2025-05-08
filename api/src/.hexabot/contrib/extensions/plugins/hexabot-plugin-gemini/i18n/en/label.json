@@ -1,0 +1,16 @@
+{
+  "token": "Token",
+  "model": "Model",
+  "context": "Context",
+  "instructions": "Instructions",
+  "max_messages_ctx": "Number of Messages",
+  "candidate_count": "Candidate Count",
+  "max_output_tokens": "Max Output Tokens",
+  "temperature": "Temperature",
+  "top_k": "Top K",
+  "top_p": "Top P",
+  "presence_penalty": "Presence Penalty",
+  "frequency_penalty": "Frequency Penalty",
+  "response_logprobs": "Response Logprobs",
+  "logprobs": "Logprobs"
+}

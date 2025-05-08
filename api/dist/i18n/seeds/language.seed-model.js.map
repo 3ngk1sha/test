@@ -1,0 +1,1 @@
+{"version":3,"file":"language.seed-model.js","sourceRoot":"","sources":["../../../src/i18n/seeds/language.seed-model.ts"],"names":[],"mappings":";;;AAUa,QAAA,cAAc,GAAwB;IACjD;QACE,KAAK,EAAE,SAAS;QAChB,IAAI,EAAE,IAAI;QACV,KAAK,EAAE,KAAK;QACZ,SAAS,EAAE,IAAI;KAChB;IACD;QACE,KAAK,EAAE,UAAU;QACjB,IAAI,EAAE,IAAI;QACV,KAAK,EAAE,KAAK;KACb;CACF,CAAC"}

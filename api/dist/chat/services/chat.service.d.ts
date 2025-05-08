@@ -1,0 +1,35 @@
+import { EventEmitter2 } from '@nestjs/event-emitter';
+import { AttachmentService } from '@/attachment/services/attachment.service';
+import EventWrapper from '@/channel/lib/EventWrapper';
+import { HelperService } from '@/helper/helper.service';
+import { LoggerService } from '@/logger/logger.service';
+import { WebsocketGateway } from '@/websocket/websocket.gateway';
+import { MessageCreateDto } from '../dto/message.dto';
+import { Conversation } from '../schemas/conversation.schema';
+import { SubscriberDocument } from '../schemas/subscriber.schema';
+import { BotService } from './bot.service';
+import { ConversationService } from './conversation.service';
+import { MessageService } from './message.service';
+import { SubscriberService } from './subscriber.service';
+export declare class ChatService {
+    private readonly eventEmitter;
+    private readonly logger;
+    private readonly conversationService;
+    private readonly messageService;
+    private readonly subscriberService;
+    private readonly botService;
+    private readonly websocketGateway;
+    private readonly helperService;
+    private readonly attachmentService;
+    constructor(eventEmitter: EventEmitter2, logger: LoggerService, conversationService: ConversationService, messageService: MessageService, subscriberService: SubscriberService, botService: BotService, websocketGateway: WebsocketGateway, helperService: HelperService, attachmentService: AttachmentService);
+    handleEndConversation(convo: Conversation): Promise<void>;
+    handleCloseConversation(convoId: string): Promise<void>;
+    handleSentMessage(sentMessage: MessageCreateDto, _event: EventWrapper<any, any>): Promise<void>;
+    handleReceivedMessage(event: EventWrapper<any, any>): Promise<void>;
+    handleMessageDelivery(event: EventWrapper<any, any>): Promise<void>;
+    handleMessageRead(event: EventWrapper<any, any>): Promise<void>;
+    handleEchoMessage(event: EventWrapper<any, any>): Promise<void>;
+    handleNewMessage(event: EventWrapper<any, any>): Promise<void>;
+    onSubscriberCreate({ _id }: SubscriberDocument): Promise<void>;
+    onSubscriberUpdate({ _id }: SubscriberDocument): Promise<void>;
+}

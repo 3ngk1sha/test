@@ -1,0 +1,42 @@
+import { EventEmitter2 } from '@nestjs/event-emitter';
+import { OnGatewayConnection, OnGatewayDisconnect, OnGatewayInit } from '@nestjs/websockets';
+import { Session as ExpressSession } from 'express-session';
+import { Server, Socket } from 'socket.io';
+import { MessageFull } from '@/chat/schemas/message.schema';
+import { Subscriber, SubscriberFull } from '@/chat/schemas/subscriber.schema';
+import { OutgoingMessage, StdEventType } from '@/chat/schemas/types/message';
+import { LoggerService } from '@/logger/logger.service';
+import { IOIncomingMessage } from './pipes/io-message.pipe';
+import { SocketEventDispatcherService } from './services/socket-event-dispatcher.service';
+export declare class WebsocketGateway implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {
+    private readonly logger;
+    private readonly eventEmitter;
+    private readonly socketEventDispatcherService;
+    constructor(logger: LoggerService, eventEmitter: EventEmitter2, socketEventDispatcherService: SocketEventDispatcherService);
+    io: Server;
+    broadcastMessageSent(message: OutgoingMessage): void;
+    broadcastMessageReceived(message: MessageFull, subscriber: Subscriber | SubscriberFull): void;
+    broadcastMessageDelivered(deliveredMessages: string[], subscriber: Subscriber | SubscriberFull): void;
+    broadcastMessageRead(watermark: number, subscriber: Subscriber | SubscriberFull): void;
+    broadcastSubscriberNew(subscriber: Subscriber | SubscriberFull): void;
+    broadcastSubscriberUpdate(subscriber: Subscriber | SubscriberFull): void;
+    broadcast(subscriber: Subscriber, type: StdEventType, content: any): void;
+    createAndStoreSession(client: Socket, next: (err?: Error) => void): void;
+    saveSession(client: Socket): void;
+    loadSession(sessionID: string, next: (err: Error, session: any) => void): void;
+    afterInit(): void;
+    handleConnection(client: Socket, ..._args: any[]): void;
+    disconnectSockets({ id }: ExpressSession): void;
+    handleDisconnect(client: Socket): Promise<void>;
+    handleHealthCheck(): {
+        event: string;
+        data: string;
+    };
+    handleGet(payload: IOIncomingMessage, client: Socket): Promise<any>;
+    handlePost(payload: IOIncomingMessage, client: Socket): Promise<any>;
+    handlePut(payload: IOIncomingMessage, client: Socket): Promise<any>;
+    handlePatch(payload: IOIncomingMessage, client: Socket): Promise<any>;
+    handleDelete(payload: IOIncomingMessage, client: Socket): Promise<any>;
+    handleOptions(payload: IOIncomingMessage, client: Socket): Promise<any>;
+    handleHead(payload: IOIncomingMessage, client: Socket): Promise<any>;
+}

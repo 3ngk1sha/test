@@ -108,7 +108,7 @@ async function bootstrap() {
     } else throw error;
   });
 
-  if (true) {
+  if (isProduction) {
     await seedDatabase(app);
     swagger(app);
   }

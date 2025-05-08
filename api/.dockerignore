@@ -17,3 +17,4 @@ test
 *.mock.ts
 __mock__
 __test__
+.hexabot

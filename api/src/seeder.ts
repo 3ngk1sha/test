@@ -61,6 +61,7 @@ export async function seedDatabase(app: INestApplicationContext) {
   // Seed models
   try {
     await modelSeeder.seed(modelModels);
+    logger.debug("model");
   } catch (e) {
     logger.error('Unable to seed the database with models!');
     throw e;
@@ -69,6 +70,7 @@ export async function seedDatabase(app: INestApplicationContext) {
   // Seed roles
   try {
     await roleSeeder.seed(roleModels);
+    logger.debug("role");
   } catch (e) {
     logger.error('Unable to seed the database with roles!');
     throw e;
@@ -96,6 +98,7 @@ export async function seedDatabase(app: INestApplicationContext) {
   // Seed permissions
   try {
     await permissionSeeder.seed(permissionSeeds);
+    logger.debug("permission");
   } catch (e) {
     logger.error('Unable to seed the database with permissions!');
     throw e;
@@ -105,6 +108,7 @@ export async function seedDatabase(app: INestApplicationContext) {
     // Seed users
     try {
       await userSeeder.seed(userModels([adminRole.id]));
+      logger.debug("user");
     } catch (e) {
       logger.error('Unable to seed the database with users!');
       throw e;
